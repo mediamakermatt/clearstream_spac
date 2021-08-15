@@ -6,8 +6,8 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        'spac-teal': '#0D978A',
-        'spac-green': '#07524B',
+        'teal': '#0D978A',
+        'green': '#07524B',
       }
     },
   },

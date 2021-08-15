@@ -1,0 +1,46 @@
+/* remove the default wordpress nav content */
+#masthead {
+    display: none;
+}
+
+#spac-nav {
+    border-bottom: 1px solid white;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+/* style the custom navigation menu created in wordpress */
+#menu-clearstream-spac {
+    position: absolute;
+    right: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: .5rem 0 0 0;
+    li {
+        margin: 0;
+        padding: 0;
+        a {
+            margin: 0;
+            padding: 2rem;
+            text-transform: uppercase;
+            color: white;
+        }
+    }
+}
+
+@media screen and (min-width: 1280px){ /* xl */
+    #menu-clearstream-spac {
+        width: calc(100% - 31rem); /* same as the video spacing */
+    }
+}
+@media screen and (max-width: 1279px){ /* lower than xl */
+    #menu-clearstream-spac {
+        width: 100%;
+    }
+}
+
+

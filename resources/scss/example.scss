@@ -1,9 +1,11 @@
-// refer to the tailwind.config.js folder to see extended custom colors, etc
+/**
+* refer to the tailwind.config.js folder to see extended custom colors, etc 
+ */
 #test-id {
-    background: theme(colors.spac-teal);
+    background: theme(colors.teal);
     width: 100px;
     height: 100px;
     &:hover {
-        background: theme(colors.spac-green);
+        background: theme(colors.green);
     }
 }

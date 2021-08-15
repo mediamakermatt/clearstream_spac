@@ -1,0 +1,27 @@
+/*
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
+*/
+
+#home-page-video {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+}
+
+@media screen and (min-width: 1280px){ /* xl */
+    #home-page-video {
+        max-width: calc(100% - 31rem);
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 1279px){ /* lower than xl */
+    #home-page-video {
+        height: 100vh;
+    }
+}
