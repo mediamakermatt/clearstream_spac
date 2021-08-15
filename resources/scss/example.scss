@@ -1,0 +1,9 @@
+// refer to the tailwind.config.js folder to see extended custom colors, etc
+#test-id {
+    background: theme(colors.spac-teal);
+    width: 100px;
+    height: 100px;
+    &:hover {
+        background: theme(colors.spac-green);
+    }
+}
