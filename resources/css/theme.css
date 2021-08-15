@@ -1,0 +1,11 @@
+/** 
+    This is fixed CSS from the Tailwind package, do not alter the content in these files
+*/
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "../../tailwind.css";
+/** 
+    These are custom files that we can alter and style to our heart's content
+*/
+@import "../scss/master.scss";

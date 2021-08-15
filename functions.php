@@ -178,3 +178,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/** add Tailwind, add date to version so it's constantly updating */
+wp_enqueue_style( 'clearstream-styles', get_template_directory_uri().'resources/css/theme.css', array(), date("Y-m-d h:i:sa") );
