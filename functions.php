@@ -178,5 +178,44 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/** add Tailwind, add date to version so it's constantly updating */
+/**
+ * Add Tailwind, add date to version so it's constantly updating 
+ */
 wp_enqueue_style( 'clearstream-styles', get_template_directory_uri().'resources/css/theme.css', array(), date("Y-m-d h:i:sa") );
+
+/**
+ * Add plugins for the dependencies folder and force them to be activated before the theme is used.
+ */
+require_once get_template_directory() . '/dependencies/class-tgm-plugin-activation.php';
+add_action( 'tgmpa_register', 'clearstream_spac_register_required_plugins' );
+
+function clearstream_spac_register_required_plugins() {
+	$plugins = array(
+		array(
+			'name'               => 'ACF Pro', // The plugin name.
+			'slug'               => 'acf-pro', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory() . '/dependencies/advanced-custom-fields-pro.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		),
+		array(
+			'name'               => 'Classic Editor', // The plugin name.
+			'slug'               => 'classic-editor', // The plugin slug (typically the folder name).
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		),
+	);
+	$config = array(
+		'id'           => 'clearstream-spac',      // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+	tgmpa( $plugins, $config );
+}
