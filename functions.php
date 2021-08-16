@@ -142,9 +142,7 @@ add_action( 'widgets_init', 'clearstream_spac_widgets_init' );
 function clearstream_spac_scripts() {
 	wp_enqueue_style( 'clearstream_spac-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'clearstream_spac-style', 'rtl', 'replace' );
-
 	wp_enqueue_script( 'clearstream_spac-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -181,7 +179,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Add Tailwind, add date to version so it's constantly updating 
  */
-wp_enqueue_style( 'clearstream-styles', get_template_directory_uri().'resources/css/theme.css', array(), date("Y-m-d h:i:sa") );
+//wp_enqueue_style( 'clearstream-styles', get_template_directory_uri().'resources/css/theme.css', array(), date("Y-m-d h:i:sa") );
 
 /**
  * Add plugins for the dependencies folder and force them to be activated before the theme is used.

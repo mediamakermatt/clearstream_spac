@@ -3,11 +3,28 @@
     display: none;
 }
 
+/* override the admin bar showing while in development */
+#wpadminbar {
+    min-width: 35px !important;
+    width: 35px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    #wp-admin-bar-root-default {
+        li {
+            opacity: 0;
+        }
+    }
+}
+
 #spac-nav {
     border-bottom: 1px solid white;
     background: transparent;
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
 }
 
 /* style the custom navigation menu created in wordpress */

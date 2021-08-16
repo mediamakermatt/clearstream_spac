@@ -18,10 +18,66 @@ xl	1280px	@media (min-width: 1280px) { ... }
         max-width: calc(100% - 31rem);
         height: 100vh;
     }
+    /* styles the content sitting in a box on top of the video */
+    #video-text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 28vh;
+        left: 0;
+        max-width: 45rem;
+        z-index: 10;
+        background: white;
+        padding: 6rem;
+        .custom-headline {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            font-weight: 900;
+            font-size: 4rem;
+        }
+        /* don't show the simplistic one meant for mobile only */
+        .mobile {
+            display: none;
+        }
+    }
 }
 
 @media screen and (max-width: 1279px){ /* lower than xl */
     #home-page-video {
         height: 100vh;
     }
+    #video-text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        padding: 5rem;
+        /* don't show the super-customized desktop version with spans */
+        .desktop {
+            display: none;
+        }
+        .custom-headline {
+            color: white;
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+        p {
+            color: white;
+            text-align: center;
+        }
+    }
+}
+
+/* all content (about, team, etc) */
+#content-below-video {
+    position: absolute;
+    top: 100vh;
 }

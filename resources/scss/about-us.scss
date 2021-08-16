@@ -1,11 +1,223 @@
 #about-us {
-    width: 100%;
-    height: 100vh;
-    background: red;
+    .left, .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .left {
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+    }
+    .right {
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            .column {
+                padding: 2rem;
+                .glyph-arrow-right {
+                    padding-left: .75rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* { box-sizing: border-box; }
+  
+.flip-card-click-container {
+    margin: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+}
+  
+.flip-card-click-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 420px;
+    height: 340px;
+    margin: 1em;
+    perspective: 1500px;
+}
+.card .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.more {
+    display: none;
+}
+.more:checked ~ .card-content {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
     position: absolute;
-    top: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    border-radius: 6px;
+}
+.card-front .inner,
+.card-back .inner {
+    height: 100%;
+    display: grid;
+    padding: 1.5em;
+    transform: translateZ(80px) scale(0.94);
+}
+
+.card-front {
+    background-color: #fff;
+    background-size: cover;
+    background-position: center center;
+}
+.card-front:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 6px;
+    backface-visibility: hidden;
+    background: linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7));
+}
+.card-front .inner {
+    grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
+    justify-items: center;
+}
+.card-front h2 {
+    grid-row: 2;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #fff;
+    border: 2px solid #f0f0f0;
+}
+.card-back .inner {
+    grid-template-rows: 1fr 2fr 1fr 2fr 14fr 1fr 1fr;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 0.8em;
+    justify-items: center;
+}
+
+.card-back .description {
+    grid-row: 5;
+    grid-column: 1/-1;
+    font-size: 0.86em;
+    border-radius: 5px;
+    font-weight: 600;
+    line-height: 1.4em;
+    overflow: auto;
+    color: #355cc9;
+    padding-right: 10px;
+}
+.card-back .location {
+    font-weight: 600;
+    color: #355cc9;
+    grid-row: 1;
+    font-size: 0.86em;
+}
+.card-back .location {
+    grid-column: 1/3;
+    justify-self: left;
+}
+
+.card-back .card-button {
+    grid-column: 1/-1;
+    justify-self: center;
+}
+
+.card-button {
+    grid-row: -1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    padding: 0 1.5em;
+    height: 3em;
+    line-height: 2.9em;
+    min-width: 3em;
+    background-color: transparent;
+    border: solid 2px #fff;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    left: 50%;
+    backface-visibility: hidden;
+    transition: 0.3s ease-in-out;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.card-button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
+    color: #355cc9;
+}
+.card-button.return {
+    line-height: 3em;
+    color: #355cc9;
+    border-color: #355cc9;
+    text-shadow: none;
+}
+.card-button.return:hover {
+    background-color: #355cc9;
+    color: #fff;
+    box-shadow: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #859ddf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #355cc9;
 }
